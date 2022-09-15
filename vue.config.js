@@ -2,7 +2,7 @@ const {
 	defineConfig
 } = require("@vue/cli-service");
 module.exports = defineConfig({
-	transpileDependencies: true,
+	transpileDependencies: false,
 	// css: {
 	// 	loaderOptions: {
 	// 		"scss": {
@@ -18,8 +18,9 @@ module.exports = defineConfig({
 		config.module
 			.rule("scss")
 			.test(/\.scss$/)
-			.use(["style-loader", "css-loader", "sass-loader"])
+			.use(["style-loader", "css-loader", 'saas-loader'])
 			.end()
 
 	}
+
 });

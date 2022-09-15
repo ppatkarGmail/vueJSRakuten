@@ -6,11 +6,10 @@
 </template>
 
 <script>
+import "../assets/temp.scss";
+
+
  export default {
 	name:"ScssApp"
  }
 </script>
-
-// <style lang="scss">
-// @import "@/assets/temp.scss"
-// </style>
