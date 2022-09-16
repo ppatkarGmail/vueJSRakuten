@@ -7,6 +7,7 @@
 				<td>{{c["first_name"]}}</td>
 				<td>{{c["last_name"]}}</td>
 				<td>{{c["age"]}}</td>
+				<td><button @click="openContact(c.id)">Open</button></td>
 			</tr>
 		</table>
 	</div>
@@ -15,11 +16,18 @@
 <script>
 
 import contactsData from "../data/contacts.js";
+import router from "../routes/router.js";
+
 export default {
 	name: 'ContactList',
 	data () {
 		return {
 			contacts:contactsData
+		}
+	},
+	methods:{
+		openContact(id) {
+			router.push({name:"contact",params:{id:id}});
 		}
 	}
 }

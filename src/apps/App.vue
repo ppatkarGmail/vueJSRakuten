@@ -2,9 +2,9 @@
 	<div>
 		<h1> Root Component </h1>
 
-		<button @click="clickme($event,'dummy')">Button  event params</button>
+		<!-- <button @click="clickme($event,'dummy')">Button  event params</button>
 
-		<div :style="[styleObj,styleObj2]">Styled Div</div>
+		<div :style="[styleObj,styleObj2]">Styled Div</div> -->
 
 		<!-- <div @click.self="divclick">
 			Parent Div
@@ -30,6 +30,13 @@
 		<p class="dummy" :class="cobj">Class binding </p>
 
  -->
+	<div v-for="(x,index) in hobbies" v-bind:key="index">
+		{{x}} {{index}}
+	</div>
+	<div v-for="(v,k) in person" >
+		{{k}} {{v}}
+	</div>
+
 
 	</div>
 </template>
@@ -43,7 +50,7 @@ export default {
 		firstName:"John",
 		lastName:"Smith",
 		age:25,
-		hobbies:["painting","swimming"],
+		hobbies:["painting","swimming","cycling"],
 		number1: 20,
 		number2: 30,
 		phtml:"<span style='color:red'> This is span element </span>",
@@ -66,6 +73,11 @@ export default {
 		styleObj2:{
 			"border":"2px solid",
 			"background-color":"pink",
+		},
+		person:{
+			name:"John",
+			age:30,
+			city:"London"
 		}
 
 	}

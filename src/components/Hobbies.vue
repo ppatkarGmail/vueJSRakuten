@@ -11,12 +11,16 @@ export default {
 	name: 'Hobbies',
 	data () {
 		return {
-			contacts:contactsData
+			contacts:contactsData,
+			paramid:this.$route.params ? parseInt(this.$route.params.id) : 0
+
 		}
 	},
 	computed:{
 		hobbies(){
-			return this.contacts[0]["hobbies"];
+			let a = this.contacts.filter((a)=>{return a.id===this.paramid});
+			console.log("hobbies",a)
+			return a[0].hobbies;
 		}
 	}
 }

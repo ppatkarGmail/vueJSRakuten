@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<label>{{label}}</label>
-		<input type="checkbox" :checked="value" />
+		<input type="checkbox" v-model="checked" :checked="value" />
 	</div>
 </template>
 
@@ -14,6 +14,17 @@
 			return {
 				checked:null
 			}
+		},
+		created(){
+			this.checked - this.value;
+		},
+		watch:{
+			checked(nv){
+				console.log("chec box change ")
+				this.$emit("checkbox",nv)
+
+			}
 		}
+
 	}
 </script>

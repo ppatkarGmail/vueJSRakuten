@@ -2,14 +2,16 @@ import {
 	createStore
 } from 'vuex';
 
+import axios from "axios";
 
 // Create a new store instance.
 const store = createStore({
 	state() {
 		return {
 			count: 0,
-			activity: null,
-			actArray: []
+			activities: null,
+			randomActivity: "",
+			errFlag: false
 
 		}
 	},
@@ -20,6 +22,12 @@ const store = createStore({
 		newActivity(state, val) {
 			state.activity = val;
 			state.actArray.unshift(val)
+		},
+		setError(state, val) {
+			state.errFlag = val;
+		},
+		setActivity(state, val) {
+			state.randomActivity = val;
 		}
 	},
 	getters: {
@@ -37,8 +45,23 @@ const store = createStore({
 			setTimeout(() => {
 				commit('increment')
 			}, 1000)
+		},
+		getRandomActivity({
+			commit
+		}) {
+			let url = 'http://www.boredapi.com/api/activity';
+			commit("setError", false);
+			return axios.get(url)
+				.then((response) => {
+					console.log(response.data);
+					commit("setActivity", response.data.activity);
+				}).catch((e) => {
+					console.log("error", e)
+					commit("setError", true);
+				})
 		}
-	}
+
+	},
 
 })
 

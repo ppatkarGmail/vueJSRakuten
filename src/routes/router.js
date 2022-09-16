@@ -30,7 +30,7 @@ const routes = [{
 		component: Contact,
 		name: "contact",
 		children: [{
-			path: '',
+			path: 'hobbies',
 			name: "hobbies",
 			component: Hobbies
 		}]
@@ -53,5 +53,6 @@ const router = createRouter({
 	history: createWebHistory(),
 	routes, // short for `routes: routes`
 })
+
 
 export default router

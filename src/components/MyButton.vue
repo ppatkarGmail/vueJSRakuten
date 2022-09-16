@@ -1,5 +1,5 @@
 <template>
-	<button :id="id">{{content}}</button>
+	<button :id="id" @click="clicked">{{content}}</button>
 </template>
 <script>
 	export default {
@@ -12,6 +12,12 @@
 			"content":{
 				type:String,
 				default:"Button Text"
+			}
+		},
+		methods:{
+			clicked(){
+				console.log("clicked from component")
+				this.$emit("clicked",1)
 			}
 		}
 	}

@@ -7,7 +7,7 @@
 <script>
 
 let c = {
-	name:"First"
+	name:"FirstComponent"
 }
 
 export default c

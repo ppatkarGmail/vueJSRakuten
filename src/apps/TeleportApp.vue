@@ -14,7 +14,7 @@
 
 <script>
 export default {
-	name: 'App',
+	name: 'TelePort',
 	data() {
 		return {
 			open: false

@@ -1,7 +1,10 @@
 const {
 	defineConfig
 } = require("@vue/cli-service");
+const path = require("path");
+
 module.exports = defineConfig({
+	outputDir: process.env.NODE_ENV === 'production' ? path.resolve(__dirname, "../node/dist") : "dist",
 	transpileDependencies: false,
 	// css: {
 	// 	loaderOptions: {
